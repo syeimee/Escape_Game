@@ -32,7 +32,11 @@ public class Slot : MonoBehaviour
     }
     //アイテムを受けっとたらその画像をスロットに表示させる
     void UpdateImage(Item item){
-        image.sprite = item.sprite;
+        if(item == null){
+            image.sprite = null; //アイテムを使用した際にnullをセットするので、画像もnullにする
+        }else{
+            image.sprite = item.sprite;
+        }
     }
 
     public bool OnSelected(){

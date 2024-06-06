@@ -37,12 +37,16 @@ public class ItemBox : MonoBehaviour
 
     }
     //アイテムの使用を試みて使えるなら使う
-    public bool TryUseItem(){
+    public bool TryUseItem(Item.Type type){
         //選択スロットがあるかどうか
         if(selectedSlot == null){
             return false;
         }
-        if(selectedSlot.GetItem().type == Item.Type.Cube){
+        if(selectedSlot.GetItem().type == type){
+            
+            selectedSlot.SetItem(null);//アイテムの消去
+            selectedSlot.HideBGPanel();//背景パネルの削除
+            selectedSlot = null; //選択アイテムの消去
             return true;
         }
         return false;

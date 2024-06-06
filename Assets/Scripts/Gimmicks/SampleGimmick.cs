@@ -8,7 +8,7 @@ public class SampleGimmick : MonoBehaviour
     //クリック判定
     public void OnClickObj(){
         Debug.Log("クリックされたぜ");
-        bool clear = ItemBox.instance.TryUseItem();
+        bool clear = ItemBox.instance.TryUseItem(Item.Type.Cube);
 
         if(clear == true){
             Debug.Log("ギミック解除");
